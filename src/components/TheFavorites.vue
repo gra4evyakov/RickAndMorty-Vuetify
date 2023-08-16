@@ -1,0 +1,20 @@
+<script setup>
+import TheCharactersList from '@/components/TheCharactersList.vue';
+import VueLoader from '@/components/icons/VueLoaderRick.vue'
+import { useCharactersStore } from '@/store/app';
+
+const store = useCharactersStore()
+
+</script>
+
+<template>
+    <v-main class="bg-space">
+      <v-container>
+        <the-characters-list v-if="store.favorites.length" :characters="store.favorites"/>
+        <template v-else>
+            <vue-loader class="mx-auto" spin/>
+            <h3 class="text-center">The favorites list is empty</h3>
+        </template>
+      </v-container>
+    </v-main>
+</template>
