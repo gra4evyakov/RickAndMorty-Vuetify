@@ -12,7 +12,7 @@ const store = useCharactersStore()
       <v-container>
         <the-characters-list v-if="store.favorites.length" :characters="store.favorites"/>
         <template v-else>
-            <vue-loader class="mx-auto" spin/>
+            <vue-loader class="mx-auto"/>
             <h3 class="text-center">The favorites list is empty</h3>
         </template>
       </v-container>
