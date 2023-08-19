@@ -3,5 +3,5 @@ import TheMain from '@/components/TheMain.vue';
 </script>
 
 <template>
-  <the-main />
+  <TheMain />
 </template>
