@@ -10,14 +10,15 @@ const props = defineProps({
 const emits = defineEmits(['add-to-favorites', 'remove-to-favorites'])
 
 const store = useCharactersStore()
-const isFavorites = computed(() => store.favorites.some((item) => item.id === props.character.id))
+const isFavorite = computed(() => store.favorites.some((item) => item.id === props.character.id))
 
-const addToFavorites = () => {
-    emits('add-to-favorites', props.character)
-}
-const removeToFavorites = () => {
-    emits('remove-to-favorites', props.character.id)
-}
+const toggleFavorites = () => {
+    if (isFavorite.value) {
+        store.removeToFavorites(props.character.id);
+    } else {
+        store.addToFavorites(props.character);
+    }
+};
 </script>
 
 <template>
@@ -30,8 +31,7 @@ const removeToFavorites = () => {
             cover
         >
             <v-card-title class="text-white" v-text="props.character.name"></v-card-title>
-            <ui-button v-if="isFavorites" is-favorite @click="removeToFavorites"/>
-            <ui-button v-else @click="addToFavorites"/>
+            <ui-button :is-favorite="isFavorite" @click="toggleFavorites"/>
         </v-img>
     </v-card>
 </template>
