@@ -1,9 +1,14 @@
 <script setup>
+import { onMounted } from 'vue';
 import TheCharactersList from '@/components/TheCharactersList.vue';
 import VueLoader from '@/components/icons/VueLoaderRick.vue'
 import { useCharactersStore } from '@/store/app';
 
 const store = useCharactersStore()
+
+onMounted(() => {
+  store.setFavoritesData()
+})
 
 </script>
 
