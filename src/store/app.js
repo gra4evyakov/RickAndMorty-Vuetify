@@ -1,26 +1,33 @@
-// Utilities
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 
 import { useGetCharacters } from '@/api/requests'
+import router from '@/router'
 
 export const useCharactersStore = defineStore('characters', () => {
-  const currentFilter = ref('')
-  const currentSearch = ref('')
-  const currentPage = ref(1)
-  const favorites = ref([])
-  const { data, isLoading, isError, execute } = useGetCharacters()
+  const fetchQuery = ref({
+    page: 1,
+    name: '',
+    species: ''
+  })
 
+  const favorites = ref([])
+  const filters = ['All', 'Human', 'Animal', 'Alien']
+
+  const { data, isLoading, isError, execute } = useGetCharacters()
   const characters = computed(() => data?.value?.results)
   const pages = computed(() => data?.value?.info?.pages || 1)
 
+  const currentFitlter = ref('All')
+
+  function updateFavorites() {
+    localStorage.setItem('favoritesList', JSON.stringify(favorites.value));
+  }
+
   async function getCharacters() {
-    currentFilter.value = currentFilter.value === 'All' ? '' : currentFilter.value
-    await execute({
-      page: currentPage.value,
-      name: currentSearch.value,
-      species: currentFilter.value
-    })
+    fetchQuery.value.species = fetchQuery.value.species === 'All' ? '' : fetchQuery.value.species
+    await execute(fetchQuery.value)
+    router.push({query: fetchQuery.value})
   }
 
   function addToFavorites(card) {
@@ -45,23 +52,25 @@ export const useCharactersStore = defineStore('characters', () => {
   }
 
   function editSearch(value) {
-    currentSearch.value = value
+    fetchQuery.value.name = value
     getCharacters()
   }
 
-  function editCurrentPage(page) {
-    currentPage.value = page
+  function editCurrentPage() {
     getCharacters()
   }
+
+  watchEffect(fetchQuery.value.species, getCharacters())
 
   return {
     characters,
     pages,
     favorites,
+    filters,
+    currentFitlter,
     isLoading,
     isError,
-    currentFilter,
-    currentSearch,
+    fetchQuery,
     getCharacters,
     addToFavorites,
     removeToFavorites,
