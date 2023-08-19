@@ -1,26 +1,18 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { watch } from 'vue';
+import { useCharactersStore } from '@/store/app'
 
-const props = defineProps({
-    length: Number
-})
+const store = useCharactersStore()
 const emits = defineEmits(['setCurrentPage'])
 
-const pageNumber = ref(1)
-const setCurrentPage = (pageNumber) => {
-    emits('setCurrentPage', pageNumber)
-}
-
-watch(pageNumber, () => {
-    setCurrentPage(pageNumber.value)
-})
+watch(store.fetchQuery, store.editCurrentPage)
 </script>
 
 <template>
     <v-pagination
-        v-model="pageNumber"
+        v-model="store.fetchQuery.page"
         class="my-4"
-        :length="props.length"
+        :length="store.pages"
         total-visible="4"
         rounded="circle"
         size="small"
