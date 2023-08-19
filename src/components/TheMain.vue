@@ -11,15 +11,13 @@ import UiSelect from './ui/UiSelect.vue';
 const store = useCharactersStore()
 const route = useRoute()
 
-const { getCharacters, setFavoritesData } = useCharactersStore()
-
 onMounted(() => {
   const queryParameters = route.query
   store.fetchQuery.page = parseInt(queryParameters.page) || 1
   store.fetchQuery.name = queryParameters.name || ''
   store.fetchQuery.species = queryParameters.species || ''
-  getCharacters()
-  setFavoritesData()
+  store.getCharacters()
+  store.setFavoritesData()
 })
 
 </script>

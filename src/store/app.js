@@ -20,10 +20,6 @@ export const useCharactersStore = defineStore('characters', () => {
 
   const currentFitlter = ref('All')
 
-  function updateFavorites() {
-    localStorage.setItem('favoritesList', JSON.stringify(favorites.value));
-  }
-
   async function getCharacters() {
     fetchQuery.value.species = fetchQuery.value.species === 'All' ? '' : fetchQuery.value.species
     await execute(fetchQuery.value)
