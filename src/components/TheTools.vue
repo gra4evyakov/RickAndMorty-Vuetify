@@ -8,7 +8,7 @@ const store = useCharactersStore()
 </script>
 
 <template>
-    <v-row class="d-flex justify-center">
+    <v-row class="justify-center">
         <v-col sm="6">
             <the-search-form @search-characters="store.editSearch"/>
         </v-col>

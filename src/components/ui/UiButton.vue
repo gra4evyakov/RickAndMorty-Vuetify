@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
     <v-btn :class="isFavorite ? 'red' : 'green'" color="white" variant="tonal" block>
-        {{ props.isFavorite ? 'Remove to favorites' : 'Add to favorites' }}
+        {{ props.isFavorite ? 'Remove from favorites' : 'Add to favorites' }}
     </v-btn>
 </template>
 
