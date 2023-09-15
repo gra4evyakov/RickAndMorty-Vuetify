@@ -8,7 +8,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/rick-and-morty-vuetify/',
+  base: '/RickAndMorty-Vuetify/',
   plugins: [
     vue({ 
       template: { transformAssetUrls }
