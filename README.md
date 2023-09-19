@@ -1,84 +1,79 @@
-# Rick and morty
+# Rick and Morty
 
-[Открыть приложение](https://gra4evyakov.github.io/rick-and-morty-vuetify/)
+[Open the Application](https://gra4evyakov.github.io/rick-and-morty-vuetify/)
 
-Это проект Vue.js приложения для просмотра персонажей из популярного мультсериала "Рик и Морти". Приложение позволяет пользователям просматривать и искать персонажей из этого мультфильма, а также добавлять их в список избранных.
+This is a Vue.js application project for viewing characters from the popular animated series "Rick and Morty." The application allows users to browse and search for characters from the show, as well as add them to their favorites list.
 
-## Инструменты
+## Tools
 
-Vue.js, Pinia, Vue Router, Vuetify, Axios, ESLint и Prettier
+Vue.js, Pinia, Vue Router, Vuetify, Axios, ESLint, and Prettier
 
-## Структура проекта
+## Project Structure
 
-Проект организован следующим образом:
+The project is organized as follows:
 
 ### `api/`
 
-- **`requests.js`**: Модуль для выполнения HTTP-запросов к API "Рик и Морти".
-- **`services.js`**: Модуль для настройки и создания службы для выполнения HTTP-запросов.
+- **`requests.js`**: Module for making HTTP requests to the "Rick and Morty" API.
+- **`services.js`**: Module for configuring and creating a service for making HTTP requests.
 
 ### `components/`
 
-- **`icons/`**: Содержит иконки, используемые в приложении.
-- **`ui/`**: Компоненты пользовательского интерфейса.
+- **`icons/`**: Contains icons used in the application.
+- **`ui/`**: User interface components.
 
-    - **`TheCharactersList.vue`**: Компонент для отображения списка персонажей.
-    - **`TheFavorites.vue`**: Компонент для отображения избранных персонажей.
-    - **`TheHeader.vue`**: Компонент заголовка приложения.
-    - **`TheMain.vue`**: Основной компонент для отображения списка персонажей, поиска и пагинации.
-    - **`ThePagination.vue`**: Компонент для управления пагинацией.
-    - **`TheSearchForm.vue`**: Форма поиска персонажей.
-    - **`TheTools.vue`**: Компонент, объединяющий форму поиска и элементы управления пагинацией.
+    - **`TheCharactersList.vue`**: Component for displaying the list of characters.
+    - **`TheFavorites.vue`**: Component for displaying favorite characters.
+    - **`TheHeader.vue`**: Application header component.
+    - **`TheMain.vue`**: Main component for displaying the list of characters, search, and pagination.
+    - **`ThePagination.vue`**: Component for handling pagination.
+    - **`TheSearchForm.vue`**: Character search form.
+    - **`TheTools.vue`**: Component that combines the search form and pagination controls.
 
 ### `hooks/`
 
-- **`useRequest.js`**: Переиспользуемая Vue-композиция для выполнения HTTP-запросов. Предоставляет функциональность для загрузки данных, обработки ошибок и выполнения запросов.
+- **`useRequest.js`**: Reusable Vue composition for making HTTP requests. Provides functionality for data loading, error handling, and request execution.
 
 ### `router/`
 
-- **`index.js`**: Конфигурация маршрутизации для приложения.
+- **`index.js`**: Routing configuration for the application.
 
 ### `services/`
 
-- **`default.js`**: Конфигурация Axios для выполнения HTTP-запросов к API "Рик и Морти".
+- **`default.js`**: Axios configuration for making HTTP requests to the "Rick and Morty" API.
 
 ### `store/`
 
-- **`app.js`**: Vuex-хранилище для управления состоянием приложения. Включает функциональность для загрузки персонажей, добавления/удаления их из списка избранных, а также обработки поиска и пагинации.
+- **`app.js`**: Vuex store for managing the application state. Includes functionality for loading characters, adding/removing them from the favorites list, and handling search and pagination.
 
 ### `views/`
 
-- **`Favorites.vue`**: Представление списка избранных персонажей.
-- **`Home.vue`**: Представление основного списка персонажей.
+- **`Favorites.vue`**: View for the favorites list of characters.
+- **`Home.vue`**: Main view for the list of characters.
 
+## Installation and Running
 
-## Установка и запуск
+1. Clone the project repository.
+2. Install dependencies using `npm install`.
+3. Start the application with `npm run dev`.
+4. Open a web browser and navigate to the provided URL to access the application.
 
-1. Склонируйте репозиторий проекта.
-2. Установите зависимости с помощью `npm install`.
-3. Запустите приложение с помощью `npm run dev`.
-4. Откройте браузер и перейдите по предоставленному URL для доступа к приложению.
+## Features
 
-## Особенности
+- View a list of characters from the "Rick and Morty" animated series.
+- Filter characters by name and species.
+- Add/Remove characters to/from the favorites list.
+- Pagination for navigating through character pages.
+- Responsive design for various screen sizes.
 
-- Просмотр списка персонажей из мультсериала "Рик и Морти".
-- Фильтрация персонажей по имени и виду.
-- Добавление/Удаление персонажей в список избранных.
-- Пагинация для навигации по страницам персонажей.
-- Адаптивный дизайн для различных размеров экранов.
+## Usage
 
-## Использование
+1. Visit the homepage to view the list of characters.
+2. Use the search form to filter characters by name.
+3. Use the species filter to narrow down the list of characters.
+4. Click on characters to add them to your favorites.
+5. Access your favorite characters by clicking the "Favorites" link in the header.
 
-1. Перейдите на главную страницу для просмотра списка персонажей.
-2. Используйте форму поиска для фильтрации персонажей по имени.
-3. Используйте фильтр видов для уточнения списка персонажей.
-4. Щелкните на персонажей для добавления их в избранное.
-5. Перейдите к избранным персонажам, перейдя по ссылке "Избранное" в заголовке.
+## Authors
 
-## Авторы
-
-Этот проект создал [Grachev Yakov](https://github.com/gra4evyakov) и вдохновлен мультсериалом "Рик и Морти".
-
-## Лицензия
-
-Этот проект лицензирован по лицензии [MIT License](LICENSE). Вы можете свободно использовать, модифицировать и распространять его по вашему усмотрению.
+This project was created by [Grachev Yakov](https://github.com/gra4evyakov) and is inspired by the "Rick and Morty" animated series.
